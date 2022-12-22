@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 
 app_name = 'accountapp' 
+
+def hhh(request):
+    return render(request, 'base_fromfolder.html')
