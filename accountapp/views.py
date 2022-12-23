@@ -6,4 +6,9 @@ from django.shortcuts import render
 app_name = 'accountapp' 
 
 def hhh(request):
-    return render(request, 'accountapp/hhh.html')
+
+    # post get 구분!
+    if request.method == "POST":
+        return render(request, 'accountapp/hhh.html', context={'text' : "POST METHOD!!"})
+    else:
+        return render(request, 'accountapp/hhh.html', context={'text' : "GET METHOD!!"})

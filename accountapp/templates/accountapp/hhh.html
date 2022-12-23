@@ -16,11 +16,20 @@
         <h1 > testing </h1>
 
         <!-- tag 내 스타일 지정, 문서 위에 스타일 지정, css 스타일 지정 순으로 적용됨 -->
-        <div class="testing" style="display: block; ">block</div>
+        <!-- <div class="testing" style="display: block; ">block</div>
         <div class="testing" style="display: inline; ">inline</div>
         <div class="testing" style="display: inline-block; ">inline-block</div>
         <div class="testing" style="display: None; ">None</div>
-        <div class ='testing' >Default</div>
+        <div class ='testing' >Default</div> -->
+
+        <!-- get/post -->
+        <form action="/account/hhh/" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value = "POST">
+        </form>
+        <h1>
+            {{ text }}
+        </h1>
     </div>
 
     <!-- 내용입력 -->
