@@ -5,5 +5,5 @@ from django.db import models
 
 # models 의 Models 가져옴
 # 거기서 추가적인 정보입력 해서 그걸 클래스로 만듦
-class hhh(models.Model):
+class HelloWorld(models.Model):
     text = models.CharField(max_length=255, null = False)

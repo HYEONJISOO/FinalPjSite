@@ -11,9 +11,10 @@
     </style>
 
 
-    <div style="height : 20rem; background-color : #38df81; border-radius : 1rem; margin:2rem;">
+    <div style="text-align: center; border-radius : 1rem; margin:2rem;">
         
-        <h1 > testing </h1>
+        <h1 style="font-family: 'DM Serif Display', serif;"> testing </h1>
+        <!-- font-family: 'DM Serif Display' = 이거 쓰고 없으면, serif; =이거써라-->
 
         <!-- tag 내 스타일 지정, 문서 위에 스타일 지정, css 스타일 지정 순으로 적용됨 -->
         <!-- <div class="testing" style="display: block; ">block</div>
@@ -23,13 +24,26 @@
         <div class ='testing' >Default</div> -->
 
         <!-- get/post -->
+        <!-- 폼 = 데이터꾸러미 -->
         <form action="/account/hhh/" method="post">
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" value = "POST">
+            <div>
+                <!-- 텍스트 입력하는 칸 만들기 -->
+                <input type="text" name = "hhh_input" >
+                <!-- 데이터 구분할 이름 써줘 -->
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value = "POST">
+            </div>
+
         </form>
+
+        {% if hhh_output %} 
+        <!-- output 이 있으면 밑의 태그를 만들어라 -->
         <h1>
-            {{ text }}
+            {{ hhh_output.text }}
         </h1>
+        {% endif %}
     </div>
 
     <!-- 내용입력 -->
