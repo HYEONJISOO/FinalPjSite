@@ -1,0 +1,16 @@
+
+/* 클래스에 적용시킬때는 점으로 시작 */
+.chore_logo {
+    font-family: 'DM Serif Display', serif;
+}
+.chore_footer_button {
+    font-size: .6rem;
+}
+
+.chore_footer {
+    text-align:center; margin-top: 2rem;
+}
+
+.chore_header {
+    text-align:center; margin: 2rem @;
+}
