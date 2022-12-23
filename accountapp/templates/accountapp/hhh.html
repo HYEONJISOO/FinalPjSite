@@ -1,11 +1,32 @@
 {% extends 'base_fromfolder.html' %}
 
 {% block content %}
-    <div style="height : 10rem; background-color : #38df81; border-radius : 1rem; margin:2rem;">
-        <h1>testing</h1>
+    <style>
+        .testing { 
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+
+
+    <div style="height : 20rem; background-color : #38df81; border-radius : 1rem; margin:2rem;">
+        
+        <h1 > testing </h1>
+
+        <!-- tag 내 스타일 지정, 문서 위에 스타일 지정, css 스타일 지정 순으로 적용됨 -->
+        <div class="testing" style="display: block; ">block</div>
+        <div class="testing" style="display: inline; ">inline</div>
+        <div class="testing" style="display: inline-block; ">inline-block</div>
+        <div class="testing" style="display: None; ">None</div>
+        <div class ='testing' >Default</div>
     </div>
 
     <!-- 내용입력 -->
     
+
+
+
 
 {% endblock %}
