@@ -38,11 +38,16 @@
 
         </form>
 
-        {% if hhh_output %} 
+        {% if hhh_list %} 
         <!-- output 이 있으면 밑의 태그를 만들어라 -->
-        <h1>
-            {{ hhh_output.text }}
-        </h1>
+        {% for h in hhh_list %}
+
+
+        <h4>
+            {{ h.text }}
+        </h4>
+
+        {% endfor %}
         {% endif %}
     </div>
 
