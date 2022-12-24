@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.urls import reverse_lazy
 
 # django environ
 import environ
@@ -61,14 +62,20 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    # 'django.contrib.sessions', 지우라는디 어케 지움... 무섭게시리... 
+    'django.contrib.sessions', # 지우라는디 어케 지움... 무섭게시리... 
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'playground',
     'debug_toolbar',
     'single_pages',
     'accountapp',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+
 ]
+
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -176,3 +183,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# next 없이 바로 로그인 창으로 갔을때 아직 page not hound 뜨는거 해결
+
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hhhu')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')

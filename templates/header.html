@@ -7,6 +7,18 @@
             <span>nav1</span>
             <span>nav2</span>
             <span>nav3</span>
-            <span>nav4</span>
+
+            {% if not user.is_authenticated %}
+            <!-- get방식으로 next 인자 넘겨줌 -->
+            <!-- 우리가 지금 홈페이지 어떤페이지에 있던간에 넥스트라는 인자를 넘겨줌으로써 로그인 끝나고 다시 그 페이지로 컴백(로그인 한 상태로)할 수 있게됨 -->
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
+                <span>login</span>
+            </a>
+
+            {% else %}
+            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+                <span>logout</span>
+            </a>
+            {% endif %}
         </div>
     </div>
