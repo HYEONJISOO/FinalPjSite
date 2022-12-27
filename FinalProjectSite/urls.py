@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('playground/', include('playground.urls')),   # playground/ 로 끝나는 모든 url 들은 playground.urls 에서 관리함!
     path('__debug__/', include('debug_toolbar.urls')),
-    path('account/', include('accountapp.urls')),
+    path('accounts/', include('accountapp.urls')),
 
 ]

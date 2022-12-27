@@ -10,7 +10,7 @@
             </h4>
         </div>
         <!-- accountapp 앱의 create 라는 라우팅으로 가라 -->
-        <form action="{% url 'accountapp:update' pk=user.pk %} " method="post">
+        <form action="{% url 'accountapp:update' pk=target_user.pk %} " method="post">
             {% csrf_token %}
             <!-- 우리가 원하는 폼을 html 로 만들어줌 : views 에서 from_class 지정했으니께 -->
             {% bootstrap_form form %}
