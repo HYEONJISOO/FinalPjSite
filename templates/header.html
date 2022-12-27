@@ -16,6 +16,12 @@
             </a>
 
             {% else %}
+
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                <!-- pk 는 지금 로그인되어있는 유저의 pk -->
+                <span>My Page</span>
+            </a>
+
             <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
                 <span>logout</span>
             </a>

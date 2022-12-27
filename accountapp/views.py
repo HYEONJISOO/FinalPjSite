@@ -3,7 +3,7 @@ from django.shortcuts import HttpResponseRedirect, render
 from django.urls import reverse, reverse_lazy
 # reverse : 함수형 뷰에서 사용하는 url
 # reverse_lazy : 클래스 형 뷰에서 사용하는 url
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.contrib.auth.forms import UserCreationForm
 
 from accountapp.models import HelloWorld
@@ -43,3 +43,8 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('accountapp:hhhu')
     # 어느 html 파일로 볼지 
     template_name = 'accountapp/create.html'
+
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = "target_user"
+    template_name = "accountapp/detail.html"
