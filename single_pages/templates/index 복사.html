@@ -8,7 +8,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Final Project</title>
+        <title>Final Project - Chords Recommendation </title>
+
+
+        <!-- GOOGLE FONTS LINK -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+        </style>        
+        <!-- ------------------------------------ -->
+
         <!-- Favicon-->
         <link rel="icon" type="static/full-width/image/x-icon" href="static/full-width/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -39,7 +50,10 @@
                 <img class="img-fluid rounded-circle mb-4" src="static/full-width/images/cassette.jpg" style="width:100px; height:100px;" alt="..." />
                 <h1 class="text-white fs-3 fw-bolder">Upload your own Music</h1>
                 <p class="text-white-50 mb-0">Recommend other chords</p>
-                <a class="btn btn-primary" href="#about">Get Started</a>
+                <a class="btn btn-dart rounded-pill" href="{% url 'playground:project_play' %}">Get Started</a>
+<!-- col-6 mt-3"> -->
+<!-- <a href="{% url 'accountapp:login' %}?next={{ request.path }}"> -->
+
 
             </div>
         </header>

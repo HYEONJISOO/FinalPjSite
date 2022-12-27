@@ -65,12 +65,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions', # 지우라는디 어케 지움... 무섭게시리... 
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'playground',
     'debug_toolbar',
     'single_pages',
     'accountapp',
+    
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'bootstrap4',
 
 ]
 
