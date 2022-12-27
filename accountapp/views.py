@@ -3,8 +3,10 @@ from django.shortcuts import HttpResponseRedirect, render
 from django.urls import reverse, reverse_lazy
 # reverse : 함수형 뷰에서 사용하는 url
 # reverse_lazy : 클래스 형 뷰에서 사용하는 url
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
+# 커스터마이징 한 폼!
+from accountapp.forms import AccountUpdateForm
 
 from accountapp.models import HelloWorld
 
@@ -48,3 +50,12 @@ class AccountDetailView(DetailView):
     model = User
     context_object_name = "target_user"
     template_name = "accountapp/detail.html"
+
+
+class AccountUpdateView(UpdateView):
+
+
+    model = User
+    form_class = AccountUpdateForm
+    success_url = reverse_lazy('accountapp:hhhu')
+    template_name = 'accountapp/update.html'
