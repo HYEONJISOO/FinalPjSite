@@ -20,6 +20,13 @@
                     Change Info
                 </p>
             </a>
+
+            <!-- delete 로 향하는 링크 -->
+            <a href="{% url 'accountapp:delete' pk=user.pk %}">
+                <p>
+                    Quit
+                </p>
+            </a>
             {% endif %}
         </div>
     </div>

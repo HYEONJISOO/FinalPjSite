@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from accountapp.views import hhh, AccountCreateView, AccountDetailView, AccountUpdateView
+from accountapp.views import hhh, AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
 
 from django.contrib.auth.views import LoginView, LogoutView
 app_name = "accountapp"
@@ -15,5 +15,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name = 'logout'), # 로그아웃은 왜 템플릿 따로 지정안해줘?
     path('detail/<int:pk>', AccountDetailView.as_view(), name = 'detail'), # 몇번 유저의 디테일에 접근할건지 적어줘야해 
     path('update/<int:pk>', AccountUpdateView.as_view(), name = 'update'), 
-    
+    path('delete/<int:pk>', AccountDeleteView.as_view(), name = 'delete'),
 ]
