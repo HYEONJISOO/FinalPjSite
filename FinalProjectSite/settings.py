@@ -39,7 +39,6 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 #ㅅTEMPLATE DIR
-BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 
@@ -74,6 +73,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'bootstrap4',
+
+    'profileapp',
 
 ]
 
@@ -188,8 +189,12 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # next 없이 바로 로그인 창으로 갔을때 아직 page not hound 뜨는거 해결
-
-
-
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hhhu')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+
+MEDIA_URL = "/media/"
+# 미디어 유알엘 : 주소창에 미디어 이하의 경로로 접근을 해야지 실제 미디어 파일에 접근 가능하다
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# 미디어 루트 : 미디어 파일을 서버에 올렸을 때 어느 경로에 지정이 될것인지, 그 경로의 루트
