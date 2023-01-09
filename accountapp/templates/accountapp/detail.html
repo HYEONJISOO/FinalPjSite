@@ -8,9 +8,21 @@
                 <!-- 접속시도한 유저의 정보가 아니라 해당 페이지 주인 유저의 정보를 볼수 있게 해줘야해 -->
                 {{ target_user.date_joined }}
             </p>
+            <!-- target_user 의 profile 이 존재하면 -->
+            {% if target_user.profile %} 
             <h2 style="font-family: 'NanumSquareNeoBold';">
-                {{ user.username }}
+                <!-- {{ target_user.username }} 그 타겟의 유저네임 바로 보이면 안되자녀...! 이름대신 닉네임 보이게 해주자-->
+                {{ target_user.profile.nickname}}
             </h2>
+            <!-- target_user 의 profile 이 존재하지 않으면 -->
+            {% else %}
+            <a href="{% url 'profileapp:create' %} ">
+                <h2 style="font-family: 'NanumSquareNeoBold';">
+                    Create Profile
+                </h2>
+                <!-- 프로필 만드는 페이지로 갈 수 있게 -->
+            </a>
+            {% endif %}
 
             <!-- 본인 페이지에 본인이 들어왔을때 -->
             {% if target_user == user %}
