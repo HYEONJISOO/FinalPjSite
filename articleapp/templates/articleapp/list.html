@@ -1,0 +1,92 @@
+{% extends "base_fromfolder.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    .container div {
+        height: 10rem;
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.5rem;
+    }
+
+    .container img{
+        height: 100%;
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+
+    .container .item1 { width: 40rem; }
+    .container .item2 { width: 10rem; }
+
+    .container .item3 { width: 30rem; }
+
+    .container .item4 { width: 800px; }
+    .container .item4 { width: 200px; }
+
+    .container .item6 { width: 600px; }
+    .container .item7 { width: 200px; }
+    .container .item8 { width: 200px; }
+    .container .item9 { width: 200px; }
+    .container .item10 { width: 200px; }
+
+    .container .item11 { width: 400px; }
+    .container .item12 { width: 400px; }
+    .container .item13 { width: 400px; }
+
+
+</style>
+
+
+    <div class="container">
+        <div class="item1">
+            <img src="https://picsum.photos/120/300" alt="">
+        </div>
+        <div class="item2">
+            <img src="https://picsum.photos/400/300" alt="">
+        </div>
+        <div class="item3">
+            <img src="https://picsum.photos/200/300" alt="">
+        </div>
+        <div class="item4">
+            <img src="https://picsum.photos/100/300" alt="">
+        </div>
+        <div class="item5">
+            <img src="https://picsum.photos/300/300" alt="">
+        </div>
+        <div class="item6">
+            <img src="https://picsum.photos/600/300" alt="">
+        </div>
+        <div class="item7">
+            <img src="https://picsum.photos/40/100" alt="">
+        </div>
+        <div class="item8">
+            <img src="https://picsum.photos/100/300" alt="">
+        </div>
+        <div class="item9">
+            <img src="https://picsum.photos/200/300" alt="">
+        </div>
+        <div class="item10">
+            <img src="https://picsum.photos/250/300" alt="">
+        </div>
+        <div class="item11">
+            <img src="https://picsum.photos/280/300" alt="">
+        </div>
+        <div class="item12">
+            <img src="https://picsum.photos/400/300" alt="">
+        </div>
+        <div class="item13">
+            <img src="https://picsum.photos/600/300" alt="">
+        </div>
+    </div>
+
+    <script src="{% static 'js/magicgrid.js' %}">
+    </script>
+  
+
+{% endblock %}
+
