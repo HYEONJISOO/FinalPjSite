@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 from profileapp.decorators import profile_ownership_required
 from profileapp.forms import ProfileCreationForm
@@ -13,7 +13,7 @@ class ProfileCreateView(CreateView):
     model = Profile
     context_object_name = 'target_profile'
     form_class = ProfileCreationForm
-    success_url = reverse_lazy('accountapp:hhhu')
+    # success_url = reverse_lazy('accountapp:detail') # pk 추가ㅏ적으로 보내줘야해! -> 여기서 설정 못해줌.. -> get_success_url 이라는 내부 메서드 만들자!
     template_name = 'profileapp/create.html'
 
 
@@ -29,6 +29,8 @@ class ProfileCreateView(CreateView):
         temp_profile.save()
         return super().form_valid(form) # 나머지는 조상이 ProfileCreateView 임. 여기에 원래있던 것의 결과를 리턴함
 
+    def get_success_url(self) :
+        return reverse('accountapp:detail', kwargs={'pk':self.object.user.pk}) # self 에서 object 가 가지고 있는건 프로파일! 그 프로파일의 유저(model.py)의 pk를 찾아서 넘겨줌
 
 # UPDATE VIEW
 
@@ -39,5 +41,8 @@ class ProfileUpdateView(UpdateView):
     model = Profile
     context_object_name = 'target_profile'
     form_class = ProfileCreationForm
-    success_url = reverse_lazy('accountapp:hhhu')
+    # success_url = reverse_lazy('accountapp:hhhu')
     template_name = 'profileapp/update.html'
+
+    def get_success_url(self) :
+        return reverse('accountapp:detail', kwargs={'pk':self.object.user.pk}) # self 에서 object 가 가지고 있는건 프로파일! 그 프로파일의 유저(model.py)의 pk를 찾아서 넘겨줌
