@@ -6,13 +6,18 @@
         <div style="text-align: center; max-width: 500; margin: 4rem auto;">
             <p>
                 <!-- 접속시도한 유저의 정보가 아니라 해당 페이지 주인 유저의 정보를 볼수 있게 해줘야해 -->
-                {{ target_user.date_joined }}
+                <!-- {{ target_user.date_joined }} -->
             </p>
-            <!-- target_user 의 profile 이 존재하면 -->
+            <!-- 프로파일 이미지  : finalproject urls.py 에서 라우팅 해줘야 이미지 보임-->
+            <img src="{{ target_user.profile.image.url }}" alt="" 
+                style="height :12rem; width: 12red; border-radius: 20rem; margin-bottom: 2rem;">
+            <!-- 닉네임이 존재하면 그거 보여줄꺼야 : target_user 의 profile 이 존재하면 -->
             {% if target_user.profile %} 
             <h2 style="font-family: 'NanumSquareNeoBold';">
                 <!-- {{ target_user.username }} 그 타겟의 유저네임 바로 보이면 안되자녀...! 이름대신 닉네임 보이게 해주자-->
                 {{ target_user.profile.nickname}}
+                <!-- 그 사람의 업데이트 프로파일로 갈수있는 앵커 태그하나 만들어줌! -->
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>
             </h2>
             <!-- target_user 의 profile 이 존재하지 않으면 -->
             {% else %}
@@ -24,6 +29,10 @@
             </a>
             {% endif %}
 
+            <!-- 메시지 -->
+            <h5 style="margin-bottom: 3rem;">
+                {{ target_user.profile.message }}
+            </h5>
             <!-- 본인 페이지에 본인이 들어왔을때 -->
             {% if target_user == user %}
             <!-- 이 링크 보여주게 -->

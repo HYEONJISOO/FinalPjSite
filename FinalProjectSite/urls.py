@@ -18,7 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include   # 인클루드 임포트 해주고
 import debug_toolbar
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
+
     path('', include('single_pages.urls')),
     path('admin/', admin.site.urls),
     path('playground/', include('playground.urls')),   # playground/ 로 끝나는 모든 url 들은 playground.urls 에서 관리함!
@@ -26,4 +31,4 @@ urlpatterns = [
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
 
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
+from profileapp.decorators import profile_ownership_required
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile
+from django.utils.decorators import method_decorator
+
+
 
 # Create your views here.
 class ProfileCreateView(CreateView):
@@ -24,3 +28,16 @@ class ProfileCreateView(CreateView):
         temp_profile.user = self.request.user
         temp_profile.save()
         return super().form_valid(form) # 나머지는 조상이 ProfileCreateView 임. 여기에 원래있던 것의 결과를 리턴함
+
+
+# UPDATE VIEW
+
+@method_decorator(profile_ownership_required, 'get')
+@method_decorator(profile_ownership_required, 'post')
+
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    context_object_name = 'target_profile'
+    form_class = ProfileCreationForm
+    success_url = reverse_lazy('accountapp:hhhu')
+    template_name = 'profileapp/update.html'
